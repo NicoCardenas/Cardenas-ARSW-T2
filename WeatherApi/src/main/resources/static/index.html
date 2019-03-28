@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Weather main</title>
+    <meta charset="UTF-8">  
+    
+    
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="js/map.js"></script>    
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">        
+        <div class="collapse navbar-collapse">
+          <div class="navbar-form navbar-left">
+            <div class="h1 text-center title">Weather layer</div>
+          </div>
+        </div>        
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+          <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="form-group">
+                  <label for="search">City</label>
+                  <input type="email" class="form-control" id="search" placeholder="Enter a City" required="true">                  
+                </div>
+                <button type="button" class="btn btn-large btn-block btn-primary" id="buttonSearch">Search</button>                
+            </div>
+          </div>
+          <div class="row">            
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-sm-offset-2">
+              <div class="h3">Map</div>
+              <div id="map-canvas"></div>
+            </div>            
+          </div>          
+        </div>
+      </div>
+    </div>    
+    <div id="map-canvas"></div>
+  </body>
+</html>
