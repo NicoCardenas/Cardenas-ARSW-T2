@@ -38,8 +38,11 @@ var geocoder = new google.maps.Geocoder();
   }  
 
   var onInput = function() {
+    console.log("------------Entro----------");
     let city = $("#search").val();
+    console.log("city: " + city);
     codeAddress(city, map);
+    checkIfDataRequested();
   }
 
   var checkIfDataRequested = function() {
@@ -154,5 +157,10 @@ var geocoder = new google.maps.Geocoder();
     
   google.maps.event.addDomListener(window, 'load', initialize);
   
-  $('#buttonSearch').click(onInput());
+$(document).ready(function () {
+  $('#buttonSearch').click( function () {
+    onInput();
+  });  
+});
+
     
