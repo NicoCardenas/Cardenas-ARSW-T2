@@ -10,8 +10,7 @@ var geocoder = new google.maps.Geocoder();
       zoom: 7,
       center: new google.maps.LatLng(50,-50)
     };
-    map = new google.maps.Map(document.getElementById('map-canvas'),
-        mapOptions);
+    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);    
     
     // Add interaction listeners to make weather requests
     google.maps.event.addListener(map, 'idle', checkIfDataRequested);
@@ -68,9 +67,10 @@ var geocoder = new google.maps.Geocoder();
                         + "&cluster=yes&format=json"
                         + "&APPID=" + openWeatherMapKey;
     request = new XMLHttpRequest();
+    console.log(requestString);
+    request.open("GET", requestString, true);
     request.onload = proccessResults;
-    request.open("get", requestString, true);
-    request.send();
+    request.send();    
   };
   // Take the JSON results and proccess them
   var proccessResults = function() {
@@ -138,7 +138,7 @@ var geocoder = new google.maps.Geocoder();
     });
   };
     
-  function codeAddress(addr, map) {
+  var codeAddress = function(addr, map) {
     geocoder.geocode( { 'address': addr}, function(results, status) {
       if (status == 'OK') {
         map.setCenter(results[0].geometry.location);
@@ -146,7 +146,7 @@ var geocoder = new google.maps.Geocoder();
             map: map,
             position: results[0].geometry.location
         });
-      } else {
+      } else {        
         alert('Geocode was not successful for the following reason: ' + status);
       }
     });
